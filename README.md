@@ -2,16 +2,19 @@
 
 **The Wild Oasis** is a custom internal management application designed for a small boutique hotel featuring eight luxurious wooden cabins. This application serves as a back-office tool allowing hotel employees to manage bookings, cabins, and guests.
 
-## 📋 Project Overview
+## 🔗 Live Preview
+**[View the Live Application](https://the-wild-oasis28.netlify.app/)**
 
+## 📋 Project Overview
 The primary goal is to build an internal system to check guests in and out and manage all hotel data.
 
 * **Target Audience:** Hotel employees (internal use).
 * **Data Handling:** The app utilizes a custom API via Supabase to model and store data, functioning as a complete interface for managing remote data.
 * **Future Scope:** While a customer-facing website for self-booking may be built later, this project focuses strictly on the internal management application.
 
-## 🚀 Features & Requirements
 
+
+## 🚀 Features & Requirements
 The project requirements are grouped into specific functional categories:
 
 * **Authentication:** Secure user login and internal account creation for hotel employees.
@@ -23,7 +26,6 @@ The project requirements are grouped into specific functional categories:
 * **Settings:** Management of application-wide settings and individual user profiles (avatar, password, etc.).
 
 ## 🛠 Technology Stack
-
 This project utilizes a modern React stack, prioritizing client-side rendering (CSR) for an optimal internal tool experience.
 
 ### Core Framework & Architecture
@@ -49,8 +51,6 @@ This project utilizes a modern React stack, prioritizing client-side rendering (
 
 ## 📂 Application Structure
 
-The application is divided into the following key pages:
-
 | Page | Description |
 | :--- | :--- |
 | **Dashboard** | The homepage featuring charts and statistics. |
@@ -61,9 +61,3 @@ The application is divided into the following key pages:
 | **Settings** | Configuration for hotel operational settings. |
 | **Account** | Personal user settings (avatar, password updates). |
 | **Login** | The entry point for unauthenticated users. |
-
-## 🏗 Next Steps
-
-1.  **Initialize** the project environment.
-2.  **Set up** the Supabase backend and database schema.
-3.  **Implement** the application shell, global styles, and core routing.
