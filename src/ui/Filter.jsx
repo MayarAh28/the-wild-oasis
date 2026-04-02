@@ -10,6 +10,11 @@ const StyledFilter = styled.div`
   padding: 0.4rem;
   display: flex;
   gap: 0.4rem;
+
+  @media (max-width: 480px) {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
 `;
 
 const FilterButton = styled.button`
@@ -33,6 +38,11 @@ const FilterButton = styled.button`
   &:hover:not(:disabled) {
     background-color: var(--color-brand-600);
     color: var(--color-brand-50);
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.2rem;
+    padding: 0.4rem 0.6rem;
   }
 `;
 function Filter({ filterField, options }) {

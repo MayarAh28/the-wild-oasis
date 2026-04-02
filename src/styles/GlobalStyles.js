@@ -111,6 +111,18 @@ html {
   font-size: 62.5%;
 }
 
+@media (max-width: 768px) {
+  html {
+    font-size: 56.25%;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 50%;
+  }
+}
+
 body {
   font-family: "Poppins", sans-serif;
   color: var(--color-grey-700);
