@@ -3,6 +3,7 @@ import styled from "styled-components";
 const FileInput = styled.input.attrs({ type: "file" })`
   font-size: 1.4rem;
   border-radius: var(--border-radius-sm);
+  width: 100%;
 
   &::file-selector-button {
     font: inherit;
@@ -15,9 +16,27 @@ const FileInput = styled.input.attrs({ type: "file" })`
     background-color: var(--color-brand-600);
     cursor: pointer;
     transition: color 0.2s, background-color 0.2s;
+    white-space: nowrap;
 
     &:hover {
       background-color: var(--color-brand-700);
+    }
+  }
+
+  @media (max-width: 768px) {
+    &::file-selector-button {
+      padding: 0.6rem 1rem;
+      margin-right: 0.8rem;
+      font-size: 1.2rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    &::file-selector-button {
+      padding: 0.5rem 0.8rem;
+      margin-right: 0.5rem;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
     }
   }
 `;

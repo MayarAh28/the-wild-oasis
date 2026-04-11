@@ -20,6 +20,10 @@ const StyledBookingDataBox = styled.section`
   border-radius: var(--border-radius-md);
 
   overflow: hidden;
+
+  @media (max-width: 768px) {
+    overflow-x: auto;
+  }
 `;
 
 const Header = styled.header`
@@ -31,6 +35,8 @@ const Header = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
 
   svg {
     height: 3.2rem;
@@ -50,10 +56,30 @@ const Header = styled.header`
     font-size: 2rem;
     margin-left: 4px;
   }
+
+  @media (max-width: 768px) {
+    padding: 1.5rem 2rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+
+    & div:first-child {
+      font-size: 1.4rem;
+      gap: 1rem;
+    }
+
+    & span {
+      font-size: 1.6rem;
+    }
+  }
 `;
 
 const Section = styled.section`
   padding: 3.2rem 4rem 1.2rem;
+
+  @media (max-width: 768px) {
+    padding: 2rem;
+  }
 `;
 
 const Guest = styled.div`
@@ -62,10 +88,17 @@ const Guest = styled.div`
   gap: 1.2rem;
   margin-bottom: 1.6rem;
   color: var(--color-grey-500);
+  flex-wrap: wrap;
 
   & p:first-of-type {
     font-weight: 500;
     color: var(--color-grey-700);
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
   }
 `;
 
@@ -76,6 +109,8 @@ const Price = styled.div`
   padding: 1.6rem 3.2rem;
   border-radius: var(--border-radius-sm);
   margin-top: 2.4rem;
+  flex-wrap: wrap;
+  gap: 1rem;
 
   background-color: ${(props) =>
     props.isPaid ? "var(--color-green-100)" : "var(--color-yellow-100)"};
@@ -93,6 +128,10 @@ const Price = styled.div`
     width: 2.4rem;
     color: currentColor !important;
   }
+
+  @media (max-width: 768px) {
+    padding: 1.2rem 2rem;
+  }
 `;
 
 const Footer = styled.footer`
@@ -100,6 +139,11 @@ const Footer = styled.footer`
   font-size: 1.2rem;
   color: var(--color-grey-500);
   text-align: right;
+
+  @media (max-width: 768px) {
+    padding: 1.2rem 2rem;
+    text-align: left;
+  }
 `;
 
 // A purely presentational component

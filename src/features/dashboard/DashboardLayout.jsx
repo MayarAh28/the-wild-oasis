@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import styled from "styled-components";
 import { useRecentStays } from "./useRecentStays";
 import { useRecentBookings } from "./useRecentBookings";
@@ -11,17 +10,41 @@ import TodayActivity from "../check-in-out/TodayActivity";
 
 const StyledDashboardLayout = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: auto 34rem auto;
   gap: 2.4rem;
 
-  @media (max-width: 1200px) {
+  @media (min-width: 1401px) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto 34rem auto;
+  }
+
+  @media (max-width: 1400px) and (min-width: 769px) {
     grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto 34rem auto;
   }
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
-    grid-template-rows: auto;
+    grid-template-rows: auto auto auto auto auto;
+    gap: 1.6rem;
+  }
+`;
+
+const StatsGrid = styled.div`
+  grid-column: 1 / -1;
+  display: grid;
+  gap: 2.4rem;
+
+  @media (min-width: 1401px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media (max-width: 1400px) and (min-width: 769px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 1.6rem;
   }
 `;
 
@@ -34,12 +57,14 @@ function DashboardLayout() {
 
   return (
     <StyledDashboardLayout>
-      <Stats
-        bookings={bookings}
-        confirmedStays={confirmedStays}
-        numDays={numDays}
-        cabinCount={cabins.length}
-      />
+      <StatsGrid>
+        <Stats
+          bookings={bookings}
+          confirmedStays={confirmedStays}
+          numDays={numDays}
+          cabinCount={cabins.length}
+        />
+      </StatsGrid>
       <TodayActivity />
       <DurationChart confirmedStays={confirmedStays} />
       <SalesChart bookings={bookings} numDays={numDays} />

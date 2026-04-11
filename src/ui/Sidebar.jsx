@@ -12,10 +12,6 @@ const Overlay = styled.div`
   visibility: ${(props) => (props.$isOpen ? "visible" : "hidden")};
   transition: opacity 0.3s ease, visibility 0.3s ease;
 
-  @media (max-width: 768px) {
-    display: block;
-  }
-
   @media (min-width: 769px) {
     display: none;
   }
@@ -41,6 +37,11 @@ const StyledSidebar = styled.aside`
     z-index: 100;
     transform: ${(props) => (props.$isOpen ? "translateX(0)" : "translateX(-100%)")};
     transition: transform 0.3s ease;
+  }
+
+  @media (max-width: 480px) {
+    width: 100%;
+    max-width: 30rem;
   }
 `;
 

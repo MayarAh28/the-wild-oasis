@@ -6,31 +6,42 @@ import styled from "styled-components";
 
 const StyledAppLayout = styled.div`
   display: grid;
-  grid-template-columns: 26rem 1fr;
+  grid-template-columns: 1fr;
   grid-template-rows: auto 1fr;
   height: 100vh;
 
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
+  @media (min-width: 769px) {
+    grid-template-columns: 26rem 1fr;
+    grid-template-rows: auto 1fr;
   }
 `;
 
 const Main = styled.main`
   background-color: var(--color-grey-50);
-  padding: 4rem 4.8rem 6.4rem;
+  padding: 2rem 1.5rem 4rem;
   overflow: scroll;
 
-  @media (max-width: 768px) {
-    padding: 2rem 2.4rem 4rem;
+  @media (min-width: 769px) {
+    padding: 4rem 4.8rem 6.4rem;
+  }
+
+  @media (min-width: 1025px) {
+    padding: 4rem 4.8rem 6.4rem;
   }
 `;
 
 const Container = styled.div`
+  width: 100%;
   max-width: 120rem;
   margin: 0 auto;
+  padding: 0 1.5rem;
   display: flex;
   flex-direction: column;
   gap: 3.2rem;
+
+  @media (min-width: 769px) {
+    padding: 0;
+  }
 `;
 
 function AppLayout() {

@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import styled, { css } from "styled-components";
 
 const sizes = {
@@ -53,13 +52,23 @@ const Button = styled.button`
   border: none;
   border-radius: var(--border-radius-sm);
   box-shadow: var(--shadow-sm);
-  ${(props) => sizes[props.size]}
-  ${(props) => variations[props.variation]}
+  ${(props) => sizes[props.$size]}
+  ${(props) => variations[props.$variation]}
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.2rem;
+    padding: 0.8rem 1rem;
+  }
 `;
 
 Button.defaultProps = {
-  variation: "primary",
-  size: "medium",
+  $variation: "primary",
+  $size: "medium",
 };
 
 export default Button;

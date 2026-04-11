@@ -22,6 +22,14 @@ const StyledSalesChart = styled(DashboardBox)`
   & .recharts-cartesian-grid-vertical line {
     stroke: var(--color-grey-300);
   }
+
+  @media (max-width: 768px) {
+    padding: 1.6rem;
+  }
+
+  @media (max-width: 480px) {
+    padding: 1.2rem;
+  }
 `;
 
 function SalesChart({ bookings, numDays }) {

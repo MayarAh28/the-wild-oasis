@@ -23,6 +23,11 @@ const HeadingGroup = styled.div`
   display: flex;
   gap: 2.4rem;
   align-items: center;
+  flex-wrap: wrap;
+
+  @media (max-width: 480px) {
+    gap: 1.2rem;
+  }
 `;
 
 function BookingDetail() {
@@ -73,7 +78,7 @@ function BookingDetail() {
         )}
         <Modal>
           <Modal.Open opens={"delete"}>
-            <Button variation="danger">Delete booking</Button>
+            <Button $variation="danger">Delete booking</Button>
           </Modal.Open>
           <Modal.Window name={"delete"}>
             <ConfirmDelete
@@ -88,7 +93,7 @@ function BookingDetail() {
           </Modal.Window>
         </Modal>
 
-        <Button variation="secondary" onClick={moveBack}>
+        <Button $variation="secondary" onClick={moveBack}>
           Back
         </Button>
       </ButtonGroup>

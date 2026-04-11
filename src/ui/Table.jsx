@@ -2,6 +2,16 @@
 import { createContext, useContext } from "react";
 import styled from "styled-components";
 
+const TableContainer = styled.div`
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  
+  @media (max-width: 768px) {
+    margin: 0 -1.5rem;
+    padding: 0 1.5rem;
+  }
+`;
+
 const StyledTable = styled.div`
   border: 1px solid var(--color-grey-200);
 
@@ -9,22 +19,32 @@ const StyledTable = styled.div`
   background-color: var(--color-grey-0);
   border-radius: 7px;
   overflow: hidden;
+  min-width: 60rem;
 
-  @media (max-width: 768px) {
-    overflow-x: auto;
+  &::-webkit-scrollbar {
+    height: 0.8rem;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: var(--color-grey-100);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--color-grey-300);
+    border-radius: 4px;
   }
 `;
 
 const CommonRow = styled.div`
   display: grid;
-  grid-template-columns: ${(props) => props.columns};
+  grid-template-columns: ${(props) => props.$columns};
   column-gap: 2.4rem;
   align-items: center;
   transition: none;
 
   @media (max-width: 768px) {
-    column-gap: 1.2rem;
-    padding: 1.2rem 1.6rem;
+    column-gap: 0.8rem;
+    padding: 0.8rem 1rem;
   }
 `;
 
@@ -82,14 +102,16 @@ const TableContext = createContext();
 function Table({ columns, children }) {
   return (
     <TableContext.Provider value={{ columns }}>
-      <StyledTable role="table">{children}</StyledTable>
+      <TableContainer>
+        <StyledTable role="table">{children}</StyledTable>
+      </TableContainer>
     </TableContext.Provider>
   );
 }
 function Header({ children }) {
   const { columns } = useContext(TableContext);
   return (
-    <StyledHeader role="row" columns={columns} as="header">
+    <StyledHeader role="row" $columns={columns} as="header">
       {children}
     </StyledHeader>
   );
@@ -97,7 +119,7 @@ function Header({ children }) {
 function Row({ children }) {
   const { columns } = useContext(TableContext);
   return (
-    <StyledRow role="row" columns={columns}>
+    <StyledRow role="row" $columns={columns}>
       {children}
     </StyledRow>
   );

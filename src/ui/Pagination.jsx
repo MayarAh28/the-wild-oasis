@@ -9,35 +9,21 @@ const StyledPagination = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  @media (max-width: 480px) {
-    flex-direction: column;
-    gap: 1.2rem;
-  }
+  flex-wrap: wrap;
+  gap: 1rem;
 `;
 
 const P = styled.p`
   font-size: 1.4rem;
-  margin-left: 0.8rem;
 
   & span {
     font-weight: 600;
-  }
-
-  @media (max-width: 480px) {
-    margin-left: 0;
-    text-align: center;
   }
 `;
 
 const Buttons = styled.div`
   display: flex;
   gap: 0.6rem;
-
-  @media (max-width: 480px) {
-    width: 100%;
-    justify-content: space-between;
-  }
 `;
 
 const PaginationButton = styled.button`
@@ -75,8 +61,17 @@ const PaginationButton = styled.button`
   }
 
   @media (max-width: 480px) {
-    padding: 0.6rem;
-    font-size: 1.2rem;
+    padding: 0.6rem 0.8rem;
+    font-size: 1.1rem;
+
+    span {
+      display: none;
+    }
+
+    & svg {
+      height: 1.6rem;
+      width: 1.6rem;
+    }
   }
 `;
 
@@ -112,13 +107,15 @@ function Pagination({ count }) {
 
       <Buttons>
         <PaginationButton onClick={prevPage} disabled={currentPage === 1}>
-          <HiChevronLeft /> <span>Previous</span>
+          <HiChevronLeft />
+          <span>Prev</span>
         </PaginationButton>
         <PaginationButton
           onClick={nextPage}
           disabled={currentPage === pageCount}
         >
-          <span>Next</span> <HiChevronRight />
+          <span>Next</span>
+          <HiChevronRight />
         </PaginationButton>
       </Buttons>
     </StyledPagination>

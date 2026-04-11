@@ -5,6 +5,7 @@ import Heading from "./Heading";
 
 const StyledConfirmDelete = styled.div`
   width: 40rem;
+  max-width: 90vw;
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
@@ -12,12 +13,25 @@ const StyledConfirmDelete = styled.div`
   & p {
     color: var(--color-grey-500);
     margin-bottom: 1.2rem;
+    font-size: 1.4rem;
   }
 
   & div {
     display: flex;
     justify-content: flex-end;
     gap: 1.2rem;
+  }
+
+  @media (max-width: 480px) {
+    width: 100%;
+
+    & p {
+      font-size: 1.3rem;
+    }
+
+    & div {
+      flex-direction: column;
+    }
   }
 `;
 
@@ -32,13 +46,13 @@ function ConfirmDelete({ resourceName, onConfirm, disabled, onCloseModal }) {
 
       <div>
         <Button
-          variation="secondary"
+          $variation="secondary"
           disabled={disabled}
           onClick={onCloseModal}
         >
           Cancel
         </Button>
-        <Button variation="danger" disabled={disabled} onClick={onConfirm}>
+        <Button $variation="danger" disabled={disabled} onClick={onConfirm}>
           Delete
         </Button>
       </div>

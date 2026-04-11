@@ -13,6 +13,12 @@ const StyledStat = styled.div`
   grid-template-rows: auto auto;
   column-gap: 1.6rem;
   row-gap: 0.4rem;
+
+  @media (max-width: 480px) {
+    grid-template-columns: 5rem 1fr;
+    padding: 1.2rem;
+    column-gap: 1.2rem;
+  }
 `;
 
 const Icon = styled.div`
@@ -51,7 +57,7 @@ const Value = styled.p`
 function Stat({ icon, title, value, color }) {
   return (
     <StyledStat>
-      <Icon color={color}>{icon}</Icon>
+      <Icon $color={color}>{icon}</Icon>
       <Title>{title}</Title>
       <Value>{value}</Value>
     </StyledStat>

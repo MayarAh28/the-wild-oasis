@@ -5,19 +5,14 @@ import LoginForm from "../features/authentication/LoginForm";
 
 const LoginLayout = styled.main`
   min-height: 100vh;
-  display: grid;
-  grid-template-columns: 48rem;
-  align-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  gap: 3.2rem;
+  gap: 2rem;
   background-color: var(--color-grey-50);
-  padding: 2rem;
-
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-    align-content: center;
-    justify-content: center;
-  }
+  padding: 1.5rem;
+  width: 100%;
 `;
 
 function Login() {
